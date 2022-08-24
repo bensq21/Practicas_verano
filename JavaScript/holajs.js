@@ -1,30 +1,40 @@
-function compruebaNum(numero){
+function compruebaCad(cadena){
     do {
-        if(numero%1==0){
-            err=false;
-            return numero;
-        } else{
-            err=true;
-            alert("Inserta un número entero, sin decimales.");
-            var numero = prompt("Inserta un número");
-        }
+        if(cadena.length==0){
+            err = true;
+            alert("La cadena debe contener algún caracter.")
+            cadena = prompt("Introduce una cadena de palabras.").trim();
+    
+        } else if(cadena.match(".*[0-9].*")){
+            err = true;
+            alert("La cadena no debe contener números.")
+            cadena = prompt("Introduce una cadena de palabras.").trim();
 
-    } while (err==true);
+        } else{
+            err = false;
+            return cadena;
+
+        };
+
+    } while (err == true);
+    
+};
+
+function compruebaMayus(cadena){
+    if(cadena.match(cadena.toUpperCase())){
+        alert("La cadena introducida está en mayúsculas.");
+
+    } else if(cadena.match(cadena.toLowerCase())){
+        alert("La cadena introducida está en minúsculas.");
+
+    } else{
+        alert("La cadena introducida está formada por mayúsculas y minúsculas.");
+
+    };
+
 }
 
-function compruebaPar(numero){
-        if(numero%2==0){
-            alert("El número " + numero + " es par.");
-            return true;
-        } else{
-            alert("El número " + numero + " es impar.");
-            return false;
-        }
-}
-
-var num = prompt("Inserta un número");
-num = compruebaNum(num);
-compruebaPar(num);
-
-alert("Finalizado: " + num);
-
+frs = prompt("Introduce una cadena de palabras.").trim();
+frs = compruebaCad(frs);
+compruebaMayus(frs);
+alert("." + frs + ".");
