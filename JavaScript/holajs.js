@@ -1,20 +1,30 @@
-var dias = ["        Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
-var res = prompt("Elige each ó in");
+function compruebaNum(numero){
+    do {
+        if(numero%1==0){
+            err=false;
+            return numero;
+        } else{
+            err=true;
+            alert("Inserta un número entero, sin decimales.");
+            var numero = prompt("Inserta un número");
+        }
 
-if (res.match("each")) {
-    alert("Eligió un bucle for each");
-    dias.forEach(element => {
-        element = element.trim() + " each sum" + 1;
-        alert(element);
-    });
-
-} else if(res.match("in")){
-    alert("Eligió un bucle for in");
-    for (element in dias) {
-        dias[element].concat(" in concatenado");//por algun motivo no consigo que muestre el texto que se está concatenando
-        alert(dias[element]);
-
-    }
-} else {
-    alert("Eleccion incorrecta.");
+    } while (err==true);
 }
+
+function compruebaPar(numero){
+        if(numero%2==0){
+            alert("El número " + numero + " es par.");
+            return true;
+        } else{
+            alert("El número " + numero + " es impar.");
+            return false;
+        }
+}
+
+var num = prompt("Inserta un número");
+num = compruebaNum(num);
+compruebaPar(num);
+
+alert("Finalizado: " + num);
+
