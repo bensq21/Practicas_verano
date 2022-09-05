@@ -20,21 +20,19 @@ function compruebaCad(cadena){
     
 };
 
-function compruebaMayus(cadena){
-    if(cadena.match(cadena.toUpperCase())){
-        alert("La cadena introducida está en mayúsculas.");
+function reverseCad(cadena){
+    return cadena.split("").reverse().join("");
 
-    } else if(cadena.match(cadena.toLowerCase())){
-        alert("La cadena introducida está en minúsculas.");
+};
 
-    } else{
-        alert("La cadena introducida está formada por mayúsculas y minúsculas.");
-
-    };
-
-}
-
-frs = prompt("Introduce una cadena de palabras.").trim();
+var frs = prompt("Introduce una cadena de palabras.").replaceAll(" ", "").toUpperCase();
 frs = compruebaCad(frs);
-compruebaMayus(frs);
+if (frs.match(reverseCad(frs))){
+    alert("Esta cadena es palíndroma");
+
+} else{
+    alert("Esta cadena no es palíndroma");
+
+};
+
 alert("." + frs + ".");
